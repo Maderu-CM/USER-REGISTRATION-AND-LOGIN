@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    
+</head>
+
+<body style="background-color: #ccc;">
+    <div class="container">
+        <div class="row main">
+            <div class="main-login main-centre">
+                <h5>Register New User or Login an Existing User</h5>
+
+                <form action="{{ url_for('register')}}" method="POST " autocomplete="off">
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="fullname" id="fullname"
+                                    placeholder="Enter Your Name" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="form-group">
+                            <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                            aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="email" id="email"
+                                        placeholder="Enter Your Email" />
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2" control-label>Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter Your Username">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group input-group-addon"><i class="fa fa-lock fa lg" aria hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" placeholder="Password" id="password" required placeholder="Enter Your Password"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group"> 
+                    {% with message = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                            <span aria-hidden="true">x</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    
+                        <input type="submit" value="Register" class="form-control btn btn-button" name="">
+                        <p style="padding: 5px;"></p>
+                        <a href="#" class="btn btn-dark">Login</a>
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+<script src="htpps://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="htpps://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.1/jquery.min.js></script>
+</body>
+
+</html>
